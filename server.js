@@ -16,7 +16,7 @@ const deletePastas = require('./modules/pastasDeleteModule');
 const putCamapanhas = require('./modules/campanhasPutModule');
 const deleteCamapanhas = require('./modules/campanhasDeleteModule');
 const admin = require('./modules/admModule');
-const getAdmin = require('./modules/admGetModle')
+const getAdmin = require('./modules/admGetModule')
 
 const app = express();
 const port = 5000;
