@@ -16,6 +16,7 @@ const deletePastas = require('./modules/pastasDeleteModule');
 const putCamapanhas = require('./modules/campanhasPutModule');
 const deleteCamapanhas = require('./modules/campanhasDeleteModule');
 const admin = require('./modules/admModule');
+const getAdmin = require('./modules/admGetModle')
 
 const app = express();
 const port = 5000;
@@ -37,6 +38,7 @@ app.use('/deletePasta', deletePastas);
 app.use('/editarCampanhas', putCamapanhas);
 app.use('/deleteCampanhas', deleteCamapanhas);
 app.use('/admin', admin);
+app.use('getAdmin', getAdmin);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
