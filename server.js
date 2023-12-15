@@ -38,7 +38,7 @@ app.use('/deletePasta', deletePastas);
 app.use('/editarCampanhas', putCamapanhas);
 app.use('/deleteCampanhas', deleteCamapanhas);
 app.use('/admin', admin);
-app.use('getAdmin', getAdmin);
+app.use('/getAdmin', getAdmin);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
