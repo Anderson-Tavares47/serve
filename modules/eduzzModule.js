@@ -3,7 +3,7 @@ const router = express.Router();
 
 const ORIGIN_SECRET = 'd796b3cc9f7cebc';
 
-router.post('/webhook-receiver', (req, res) => {
+router.post('/webhook-eduzz', (req, res) => {
     try {
         console.log('Recebendo requisição:', req.body);
 
