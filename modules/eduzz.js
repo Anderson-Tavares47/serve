@@ -4,9 +4,11 @@ const router = express.Router();
 const ORIGIN_SECRET = '4e002af4-2956-492a-a753-83744be5a6f0';
 
 router.post('/webhook-receiver', (req, res) => {
+     console.log(req)
     try {
         const { type, fields } = req.body;
 
+         console.log(req)
         // Validar a autenticação através do origin_secret
        const originSecretRecebido = fields.edz_cli_origin_secret;
         console.log(originSecretRecebido)
