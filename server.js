@@ -21,7 +21,7 @@ const admin = require("./modules/admModule");
 const getAdmin = require("./modules/admGetModule");
 const postEduzz = require("./modules/eduzz");
 const postHotmart = require("./modules/hotmartModule");
-const postMonetizze = require("/modules/monetizzeModule");
+const postMonetizze = require("./modules/monetizzeModule");
 
 const app = express();
 const port = 5000;
