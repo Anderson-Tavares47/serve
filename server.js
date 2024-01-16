@@ -21,6 +21,7 @@ const admin = require("./modules/admModule");
 const getAdmin = require("./modules/admGetModule");
 const postEduzz = require("./modules/eduzz");
 const postHotmart = require("./modules/hotmartModule");
+const postMonetizze = require("/modules/monetizzeModule");
 
 const app = express();
 const port = 5000;
@@ -45,6 +46,7 @@ app.use("/admin", admin);
 app.use("/getAdmin", getAdmin);
 app.use("/postEduzz", postEduzz);
 app.use("hotmart", postHotmart);
+app.use("monetizze", postMonetizze);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
