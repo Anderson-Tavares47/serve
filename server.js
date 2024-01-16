@@ -20,7 +20,7 @@ const deleteCamapanhas = require("./modules/campanhasDeleteModule");
 const admin = require("./modules/admModule");
 const getAdmin = require("./modules/admGetModule");
 const postEduzz = require("./modules/eduzz");
-const postHotmart = require("./module/hotmartModule");
+const postHotmart = require("./modules/hotmartModule");
 
 const app = express();
 const port = 5000;
