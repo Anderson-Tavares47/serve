@@ -6,7 +6,7 @@ const ORIGIN_SECRET = '4e002af4-2956-492a-a753-83744be5a6f0';
 router.post('/webhook-receiver', (req, res) => {
      console.log(req)
     try {
-        const { type, fields } = req.body;
+        const { type, fields = {} } = req.body;
 
          console.log(req)
         // Validar a autenticação através do origin_secret
