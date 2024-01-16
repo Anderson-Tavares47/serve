@@ -45,8 +45,8 @@ app.use("/deleteCampanhas", deleteCamapanhas);
 app.use("/admin", admin);
 app.use("/getAdmin", getAdmin);
 app.use("/postEduzz", postEduzz);
-app.use("hotmart", postHotmart);
-app.use("monetizze", postMonetizze);
+app.use("/hotmart", postHotmart);
+app.use("/monetizze", postMonetizze);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
