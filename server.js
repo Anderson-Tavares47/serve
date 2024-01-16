@@ -19,6 +19,7 @@ const putCamapanhas = require("./modules/campanhasPutModule");
 const deleteCamapanhas = require("./modules/campanhasDeleteModule");
 const admin = require("./modules/admModule");
 const getAdmin = require("./modules/admGetModule");
+const postEduzz = require("./modules/eduzz")
 
 const app = express();
 const port = 5000;
@@ -41,6 +42,7 @@ app.use("/editarCampanhas", putCamapanhas);
 app.use("/deleteCampanhas", deleteCamapanhas);
 app.use("/admin", admin);
 app.use("/getAdmin", getAdmin);
+app.use("/postEduzz", postEduzz);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
