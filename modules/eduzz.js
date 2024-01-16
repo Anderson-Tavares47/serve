@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const ORIGIN_SECRET = '4e002af4-2956-492a-a753-83744be5a6f0';
+const ORIGIN_SECRET = 'd796b3cc9f7cebc';
 
 router.post('/webhook-receiver', (req, res) => {
      console.log(req)
@@ -10,7 +10,7 @@ router.post('/webhook-receiver', (req, res) => {
 
          console.log(req)
         // Validar a autenticação através do origin_secret
-       const originSecretRecebido = req.body.origin_secret;;
+       const originSecretRecebido = req.api_key;
         console.log(originSecretRecebido)
         const autenticacaoValida = originSecretRecebido === ORIGIN_SECRET;
         console.log(autenticacaoValida);
