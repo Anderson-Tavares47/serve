@@ -10,7 +10,7 @@ router.post('/webhook-receiver', (req, res) => {
 
          console.log(req)
         // Validar a autenticação através do origin_secret
-       const originSecretRecebido = req.api_key;
+       const originSecretRecebido = req.body.api_key;
         console.log(originSecretRecebido)
         const autenticacaoValida = originSecretRecebido === ORIGIN_SECRET;
         console.log(autenticacaoValida);
