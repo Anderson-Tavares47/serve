@@ -4,16 +4,13 @@ const router = express.Router();
 const ORIGIN_SECRET = 'd796b3cc9f7cebc';
 
 router.post('/webhook-receiver', (req, res) => {
-     console.log(req)
     try {
-        const { type, fields = {} } = req.body;
+        console.log('Recebendo requisição:', req.body);
 
-         console.log(req)
+        const { type, api_key } = req.body;
+
         // Validar a autenticação através do origin_secret
-       const originSecretRecebido = req.body.api_key;
-        console.log(originSecretRecebido)
-        const autenticacaoValida = originSecretRecebido === ORIGIN_SECRET;
-        console.log(autenticacaoValida);
+        const autenticacaoValida = api_key === ORIGIN_SECRET;
 
         if (type === 'create' && autenticacaoValida) {
             // A autenticação é válida, você pode processar os dados aqui
@@ -29,4 +26,5 @@ router.post('/webhook-receiver', (req, res) => {
         res.status(500).json({ status: 'error', message: 'Erro ao processar webhook.' });
     }
 });
+
 module.exports = router;
