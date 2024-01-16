@@ -25,3 +25,4 @@ router.post('/webhook-receiver', (req, res) => {
         res.status(500).json({ status: 'error', message: 'Erro ao processar webhook.' });
     }
 });
+module.exports = router;
