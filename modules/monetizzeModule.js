@@ -6,6 +6,7 @@ const MONETIZZE_VERIFICATION_TOKEN = '5418681c4606de1d988850353a804c6b';
 router.post('/webhook-monetizze', (req, res) => {
     try {
         const { verificationToken } = req.body;
+        console.log(req.body)
 
         // Validar o token de verificação do Hotmart
         if (verificationToken === MONETIZZE_VERIFICATION_TOKEN) {
