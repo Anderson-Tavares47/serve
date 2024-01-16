@@ -10,9 +10,9 @@ router.post('/webhook-receiver', (req, res) => {
         const { type, api_key } = req.body;
 
         // Validar a autenticação através do origin_secret
-        const autenticacaoValida = api_key === ORIGIN_SECRET;
+        const autenticacaoValida = req.body.api_key === ORIGIN_SECRET;
 
-        if (type === 'create' && autenticacaoValida) {
+        if (autenticacaoValida) {
             // A autenticação é válida, você pode processar os dados aqui
             console.log('Dados recebidos:', req.body);
             res.status(200).json({ status: 'success', message: 'Webhook recebido com sucesso!' });
