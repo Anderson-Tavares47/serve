@@ -19,7 +19,7 @@ const putCamapanhas = require("./modules/campanhasPutModule");
 const deleteCamapanhas = require("./modules/campanhasDeleteModule");
 const admin = require("./modules/admModule");
 const getAdmin = require("./modules/admGetModule");
-const postEduzz = require("./modules/eduzz");
+const postEduzz = require("./modules/eduzzModule");
 const postHotmart = require("./modules/hotmartModule");
 const postMonetizze = require("./modules/monetizzeModule");
 
@@ -44,7 +44,7 @@ app.use("/editarCampanhas", putCamapanhas);
 app.use("/deleteCampanhas", deleteCamapanhas);
 app.use("/admin", admin);
 app.use("/getAdmin", getAdmin);
-app.use("/postEduzz", postEduzz);
+app.use("/eduzz", postEduzz);
 app.use("/hotmart", postHotmart);
 app.use("/monetizze", postMonetizze);
 
