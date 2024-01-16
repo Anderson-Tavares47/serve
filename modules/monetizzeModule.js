@@ -5,11 +5,11 @@ const MONETIZZE_VERIFICATION_TOKEN = '5418681c4606de1d988850353a804c6b';
 
 router.post('/webhook-monetizze', (req, res) => {
     try {
-        const { verificationToken } = req.body;
+        const { chave_unica } = req.body;
         console.log(req.body)
 
         // Validar o token de verificação do Hotmart
-        if (verificationToken === MONETIZZE_VERIFICATION_TOKEN) {
+        if (chave_unica === MONETIZZE_VERIFICATION_TOKEN) {
             // Token de verificação válido, você pode processar os dados aqui
             console.log('Dados do webhook do monetizze recebidos:', req.body);
             res.status(200).json({ status: 'success', message: 'Webhook do monetizze recebido com sucesso!' });
