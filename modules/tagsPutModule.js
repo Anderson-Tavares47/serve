@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-router.put('/tags/:tag', async (req, res) => {
+router.put('/:tag', async (req, res) => {
     const tagName = req.params.tag;
     const { newTag } = req.body;
 
