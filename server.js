@@ -22,10 +22,10 @@ const getAdmin = require("./modules/admGetModule");
 const postEduzz = require("./modules/eduzzModule");
 const postHotmart = require("./modules/hotmartModule");
 const postMonetizze = require("./modules/monetizzeModule");
-const getLeads = require("./module/leadsGetModule");
-const postLeads = require("./module/leadsPostModule");
-const putLeads = require("./module/leadsputModule");
-const deleteLeads = require("./module/leadsDeleteModule");
+const getLeads = require("./modules/leadsGetModule");
+const postLeads = require("./modules/leadsPostModule");
+const putLeads = require("./modules/leadsPutModule");
+const deleteLeads = require("./modules/leadsDeleteModule");
 
 const app = express();
 const port = 5000;
