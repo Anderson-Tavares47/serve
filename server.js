@@ -22,6 +22,10 @@ const getAdmin = require("./modules/admGetModule");
 const postEduzz = require("./modules/eduzzModule");
 const postHotmart = require("./modules/hotmartModule");
 const postMonetizze = require("./modules/monetizzeModule");
+const getLeads = require("./module/leadsGetModule");
+const postLeads = require("./module/leadsPostModule");
+const putLeads = require("./module/leadsputModule");
+const deleteLeads = require("./module/leadsDeleteModule");
 
 const app = express();
 const port = 5000;
@@ -47,6 +51,10 @@ app.use("/getAdmin", getAdmin);
 app.use("/eduzz", postEduzz);
 app.use("/hotmart", postHotmart);
 app.use("/monetizze", postMonetizze);
+app.use("/getLeads", getLeads);
+app.use("/postLeads", postLeads);
+app.use("/putLeads", putLeads);
+app.use("/deleteLeads", deleteLeads);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
