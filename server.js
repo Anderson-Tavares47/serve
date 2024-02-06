@@ -26,6 +26,10 @@ const getLeads = require("./modules/leadsGetModule");
 const postLeads = require("./modules/leadsPostModule");
 const putLeads = require("./modules/leadsPutModule");
 const deleteLeads = require("./modules/leadsDeleteModule");
+const getTags = require("./modules/tagsGetModule");
+const postTags = require("./modules/tagsPostModule");
+const putTags = require("./modules/tagsPutModule");
+const deleteTags = require("./modules/tagsDeleteModule");
 
 const app = express();
 const port = 5000;
@@ -55,6 +59,10 @@ app.use("/getLeads", getLeads);
 app.use("/postLeads", postLeads);
 app.use("/putLeads", putLeads);
 app.use("/deleteLeads", deleteLeads);
+app.use("/getTags", getTags);
+app.use("/postTags", postTags);
+app.use("/putTags", putTags);
+app.use("/deleteTags", deleteTags);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
