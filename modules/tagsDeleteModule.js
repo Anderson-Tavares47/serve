@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-router.delete('/tags/:tag', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const tagName = req.params.tag;
 
     try {
