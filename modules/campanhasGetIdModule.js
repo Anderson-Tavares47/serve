@@ -3,18 +3,17 @@ const db = require('../db');
 const router = express.Router();
 const validateApiKey = require('./validateApiKey');
 
-router.get('/:id', validateApiKey, async (req, res) => {
-  const { id } = req.params;
+router.get('/:pasta_id', validateApiKey, async (req, res) => {
+  const { pasta_id } = req.params;
 
   try {
-    const campanha = await db.one('SELECT pasta_id FROM campanhas WHERE id = $1', id);
+    const campanha = await db.one('SELECT * FROM campanhas WHERE pasta_id = $1', pasta_id);
 
     res.status(200).json(campanha);
   } catch (error) {
-    console.error('Erro ao recuperar a campanha por ID:', error);
-    res.status(500).json({ error: 'Erro ao recuperar a campanha por ID' });
+    console.error('Erro ao recuperar a campanha por pasta_id:', error);
+    res.status(500).json({ error: 'Erro ao recuperar a campanha por pasta_id' });
   }
 });
 
 module.exports = router;
-
