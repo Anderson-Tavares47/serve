@@ -32,7 +32,7 @@ const postTags = require("./modules/tagsPostModule");
 const putTags = require("./modules/tagsPutModule");
 const deleteTags = require("./modules/tagsDeleteModule");
 const validateApiKey = require("./modules/validateApiKey");
-
+const pastasGetId = require("./modules/pastasGetIdModule");
 
 const app = express();
 const port = 5000;
@@ -68,6 +68,7 @@ app.use("/getTags", getTags);
 app.use("/postTags", postTags);
 app.use("/putTags", putTags);
 app.use("/deleteTags", deleteTags);
+app.use("/getPastas", pastasGetId); 
 
 
 app.listen(port, () => {
