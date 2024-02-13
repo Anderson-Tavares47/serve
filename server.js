@@ -17,6 +17,7 @@ const putPastas = require("./modules/pastasPutModule");
 const deletePastas = require("./modules/pastasDeleteModule");
 const putCamapanhas = require("./modules/campanhasPutModule");
 const deleteCamapanhas = require("./modules/campanhasDeleteModule");
+const campanhasGetId = require("./modules/campanhasGetIdModule");
 const admin = require("./modules/admModule");
 const getAdmin = require("./modules/admGetModule");
 const postEduzz = require("./modules/eduzzModule");
@@ -31,7 +32,7 @@ const postTags = require("./modules/tagsPostModule");
 const putTags = require("./modules/tagsPutModule");
 const deleteTags = require("./modules/tagsDeleteModule");
 const validateApiKey = require("./modules/validateApiKey");
-const pastasGetId = require("./modules/pastasGetIdModule");
+
 
 const app = express();
 const port = 5000;
