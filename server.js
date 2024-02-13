@@ -31,6 +31,7 @@ const postTags = require("./modules/tagsPostModule");
 const putTags = require("./modules/tagsPutModule");
 const deleteTags = require("./modules/tagsDeleteModule");
 const validateApiKey = require("./modules/validateApiKey");
+const pastasGetId = require("./modules/pastasGetIdModule");
 
 const app = express();
 const port = 5000;
@@ -46,6 +47,7 @@ app.use("/assasUser", UserAssas);
 app.use("/assasFatura", FaturaAssas);
 app.use("/api/pastas", criaPastas);
 app.use("/pastas", getPastas);
+app.use("/getPastas", pastasGetId);
 app.use("/api/campanhas", campanhas);
 app.use("/campanhas", getCampanhas);
 app.use("/editarPasta", putPastas);
@@ -65,6 +67,7 @@ app.use("/getTags", getTags);
 app.use("/postTags", postTags);
 app.use("/putTags", putTags);
 app.use("/deleteTags", deleteTags);
+
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
