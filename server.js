@@ -30,13 +30,15 @@ const getTags = require("./modules/tagsGetModule");
 const postTags = require("./modules/tagsPostModule");
 const putTags = require("./modules/tagsPutModule");
 const deleteTags = require("./modules/tagsDeleteModule");
+const validateApiKey = require("./modules/validateApiKey");
 
 const app = express();
 const port = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Use o módulo para a rota /criar-conta
+app.use(validateApiKey);
+
 app.use("/criar-conta", criarContaModule);
 app.use("/login", login);
 app.use("/usuarios", usuarios);
