@@ -7,13 +7,14 @@ router.get('/:id', validateApiKey, async (req, res) => {
   const { id } = req.params;
 
   try {
-    const usuario = await db.one('SELECT * FROM pastas WHERE id = $1', id);
+    const campanha = await db.one('SELECT pasta_id FROM campanhas WHERE id = $1', id);
 
-    res.status(200).json(usuario);
+    res.status(200).json(campanha);
   } catch (error) {
-    console.error('Erro ao recuperar o usuário por ID:', error);
-    res.status(500).json({ error: 'Erro ao recuperar o usuário por ID' });
+    console.error('Erro ao recuperar a campanha por ID:', error);
+    res.status(500).json({ error: 'Erro ao recuperar a campanha por ID' });
   }
 });
 
 module.exports = router;
+
