@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const validateApiKey = require('./validateApiKey');
 
-// Create a new campaign for a specific folder
-router.post('/pastas/:id', async (req, res) => {
+router.post('/pastas/:id', validateApiKey, async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
 
