@@ -1,7 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const router = express.Router();
-const acess_token = process.env.ACCESS_TOKEN;
+const acess_token = process.env.ACCESS_TOKEN_ASSAS;
 // Configuração da API do Asaas
 const asaasApiOptions = {
   headers: {
