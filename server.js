@@ -48,7 +48,7 @@ app.use("/assasUser", UserAssas);
 app.use("/assasFatura", FaturaAssas);
 app.use("/api/pastas", criaPastas);
 app.use("/pastas", getPastas);
-app.use("/getPastas", pastasGetId);
+app.use("/getCampanhas", campanhasGetId);
 app.use("/api/campanhas", campanhas);
 app.use("/campanhas", getCampanhas);
 app.use("/editarPasta", putPastas);
