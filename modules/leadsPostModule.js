@@ -5,6 +5,7 @@ const validateApiKey = require('./validateApiKey');
 
 router.post('/', validateApiKey, async (req, res) => {
     const { nome, celular, email, tag } = req.body;
+    console.log(nome, celular, email, tag)
 
     try {
         const result = await db.query('INSERT INTO leads (nome, celular, email, tag) VALUES ($1, $2, $3, $4) RETURNING *', [nome, celular, email, tag]);
