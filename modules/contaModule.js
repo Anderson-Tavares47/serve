@@ -2,8 +2,9 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const db = require("../db");
+const validateApiKey = require('./validateApiKey');
 
-router.post("/", async (req, res) => {
+router.post("/", validateApiKey, async (req, res) => {
   const { nome, sobrenome, email, senha, isAdmin } = req.body;
 
   // Hash da senha usando bcrypt (substitua 10 pelo custo desejado)
@@ -16,7 +17,6 @@ router.post("/", async (req, res) => {
   const hashedSenha = await bcrypt.hash(senha, 10);
 
   try {
-    // Inserir dados na tabela do banco de dados
     await db.none(
       "INSERT INTO usuarios (nome, sobrenome, email, senha, isAdmin) VALUES($1, $2, $3, $4, $5)",
       [nome, sobrenome, email, hashedSenha, isAdmin]
