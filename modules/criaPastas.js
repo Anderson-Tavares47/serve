@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const validateApiKey = require('./validateApiKey');
 
 // Create a new folder
-router.post('/', async (req, res) => {
+router.post('/', validateApiKey, async (req, res) => {
   const { name } = req.body;
 
   try {
