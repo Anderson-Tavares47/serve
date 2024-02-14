@@ -5,8 +5,8 @@ const validateApiKey = require('./validateApiKey');
 
 router.get("/", validateApiKey, async (req, res) => {
   try {
-    const result = await db.query("SELECT * FROM leads");
-    res.json(result.rows);
+    const result = await db.query("SELECT * FROM lead");
+    res.json(result);
   } catch (error) {
     console.error("Erro ao obter tags:", error);
     res.status(500).send("Erro Interno do Servidor");
