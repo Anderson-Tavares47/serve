@@ -11,7 +11,7 @@ router.post('/', validateApiKey, async (req, res) => {
 
         console.log(result);
 
-        if (result && result.rows && result.rows.length > 0) {
+        if (result) {
             res.status(201).json(result.rows[0]);
         } else {
             res.status(500).send('Erro Interno do Servidor: Nenhum resultado retornado após a inserção.');
