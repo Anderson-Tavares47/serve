@@ -2,8 +2,9 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const db = require('../db');
+const validateApiKey = require('./validateApiKey');
 
-router.post('/', async (req, res) => {
+router.post('/', validateApiKey, async (req, res) => {
   const { email, senha } = req.body;
 
   if (!email || !senha) {
