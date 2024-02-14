@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db");
+const validateApiKey = require('./validateApiKey');
 
-router.put("/:tagName", async (req, res) => {
+router.put("/:tagName", validateApiKey, async (req, res) => {
   const tagName = req.params.tagName;
   const { newTagName } = req.body;
 
