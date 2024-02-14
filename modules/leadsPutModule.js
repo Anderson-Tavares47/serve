@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const validateApiKey = require('./validateApiKey');
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', validateApiKey, async (req, res) => {
     const leadId = req.params.id;
     const { nome, celular, email, tag } = req.body;
 
