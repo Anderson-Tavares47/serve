@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db");
+const validateApiKey = require('./validateApiKey');
 
 // Rota para obter todas as tags
-router.get("/", async (req, res) => {
+router.get("/", validateApiKey, async (req, res) => {
   try {
     const result = await db.query("SELECT * FROM tags");
     res.json(result.rows);
