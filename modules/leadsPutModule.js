@@ -8,10 +8,10 @@ router.put('/:id', validateApiKey, async (req, res) => {
     const { nome, celular, email, tag } = req.body;
 
     try {
-        const result = await db.query('UPDATE leads SET nome = $1, celular = $2, email = $3, tag = $4 WHERE id = $5 RETURNING *', [nome, celular, email, tag, leadId]);
+        const result = await db.query('UPDATE lead SET nome = $1, celular = $2, email = $3, tag = $4 WHERE id = $5 RETURNING *', [nome, celular, email, tag, leadId]);
 
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
+        if (result) {
+            res.json(result);
         } else {
             res.status(404).send('Lead não encontrado');
         }
