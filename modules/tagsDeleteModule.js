@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db");
+const validateApiKey = require('./validateApiKey');
 
-router.delete("/:tagName", async (req, res) => {
+router.delete("/:tagName", validateApiKey, async (req, res) => {
   const tagName = req.params.tagName;
 
   try {
