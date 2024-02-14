@@ -8,11 +8,11 @@ router.post('/', validateApiKey, async (req, res) => {
 
     try {
         const result = await db.query('INSERT INTO leads (nome, celular, email, tag) VALUES ($1, $2, $3, $4) RETURNING *', [nome, celular, email, tag]);
+        console.log(result)
 
         if (result.rows.length > 0) {
             res.status(201).json(result.rows[0]); // Retorna o lead inserido com o status 201 (Created)
         } else {
-            console.log(result)
             res.status(500).send('Erro Interno do Servidor: Nenhum resultado retornado após a inserção.');
         }
     } catch (error) {
