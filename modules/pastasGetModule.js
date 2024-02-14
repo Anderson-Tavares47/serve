@@ -2,8 +2,9 @@
 const express = require('express');
 const db = require('../db');
 const router = express.Router();
+const validateApiKey = require('./validateApiKey');
 
-router.get('/', async (req, res) => {
+router.get('/', validateApiKey, async (req, res) => {
   try {
     const usuarios = await db.any('SELECT * FROM pastas');
 
