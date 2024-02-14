@@ -2,8 +2,9 @@
 const express = require('express');
 const db = require('../db');
 const router = express.Router();
+const validateApiKey = require('./validateApiKey');
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', validateApiKey, async (req, res) => {
   const { id } = req.params;
 
   try {
