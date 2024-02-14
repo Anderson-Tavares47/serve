@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db");
+const validateApiKey = require('./validateApiKey');
 
-router.post("/", async (req, res) => {
+router.post("/", validateApiKey, async (req, res) => {
   const { nome } = req.body;
 
   try {
