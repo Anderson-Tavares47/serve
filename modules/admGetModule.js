@@ -1,17 +1,14 @@
-// Importe o módulo 'express' e 'pg-promise'
 const express = require('express');
-const db = require('../db'); // Importe o objeto de banco de dados de database.js
-
-// Crie uma instância do roteador do Express
+const db = require('../db');
 const router = express.Router();
+const validateApiKey = require('./validateApiKey');
 
-// Defina a rota GET para recuperar todos os usuários
-router.get('/', async (req, res) => {
+
+router.get('/', validateApiKey, async (req, res) => {
   try {
-    // Consulte todos os usuários na tabela 'usuarios'
+    
     const usuarios = await db.any('SELECT * FROM adms');
 
-    // Responda com a lista de usuários
     res.status(200).json(usuarios);
   } catch (error) {
     console.error('Erro ao recuperar usuários:', error);
@@ -19,5 +16,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Exporte o roteador para uso no seu aplicativo principal
 module.exports = router;
