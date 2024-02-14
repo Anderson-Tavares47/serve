@@ -12,7 +12,7 @@ router.post('/', validateApiKey, async (req, res) => {
         console.log(result);
 
         if (result) {
-            res.status(201).json(result.rows);
+            res.status(201).json(result);
         } else {
             res.status(500).send('Erro Interno do Servidor: Nenhum resultado retornado após a inserção.');
         }
