@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db");
+const validateApiKey = require('./validateApiKey');
 
-router.get("/", async (req, res) => {
+router.get("/", validateApiKey, async (req, res) => {
   try {
     const result = await db.query("SELECT * FROM leads");
     res.json(result.rows);
