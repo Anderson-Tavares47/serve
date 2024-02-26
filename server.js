@@ -37,6 +37,7 @@ const subUserGet = require("./modules/subUserGetModule");
 const subUserPost = require("./modules/subUserPostModule");
 const subUserAdminGet = require("./modules/subUserGetIdAdminModule");
 const subUserPut = require("./modules/subUserPutModule");
+const subUserDelete = require("./modules/subUserDeleteModule");
 
 const app = express();
 const port = 5000;
@@ -77,6 +78,7 @@ app.use("/getSubUser", subUserGet);
 app.use("/postSubUser", subUserPost); 
 app.use("/getSubUsersAll", subUserAdminGet); 
 app.use("/putSubUser", subUserPut);
+app.use("/deleteSubUser", subUserDelete);
 
 
 app.listen(port, () => {
