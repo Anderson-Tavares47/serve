@@ -15,3 +15,5 @@ router.post('/', validateApiKey, async (req, res) => {
     res.status(500).send('Erro Interno do Servidor');
   }
 });
+
+module.exports = router;
