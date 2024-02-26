@@ -6,7 +6,7 @@ const validateApiKey = require('./validateApiKey');
 router.get('/', validateApiKey, async (req, res) => {
   try {
     const result = await db.query('SELECT * FROM help');
-    res.json(result.rows);
+    res.json(result);
   } catch (error) {
     console.error('Erro ao obter registros da tabela help:', error);
     res.status(500).send('Erro Interno do Servidor');
