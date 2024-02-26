@@ -36,6 +36,7 @@ const pastasGetId = require("./modules/pastasGetIdModule");
 const subUserGet = require("./modules/subUserGetModule");
 const subUserPost = require("./modules/subUserPostModule");
 const subUserAdminGet = require("./modules/subUserGetIdAdminModule");
+const subUserPut = require("./modules/subUserPutModule");
 
 const app = express();
 const port = 5000;
@@ -75,6 +76,7 @@ app.use("/getPastas", pastasGetId);
 app.use("/getSubUser", subUserGet); 
 app.use("/postSubUser", subUserPost); 
 app.use("/getSubUsersAll", subUserAdminGet); 
+app.use("/putSubUser", subUserPut);
 
 
 app.listen(port, () => {
