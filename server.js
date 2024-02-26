@@ -34,6 +34,7 @@ const deleteTags = require("./modules/tagsDeleteModule");
 const validateApiKey = require("./modules/validateApiKey");
 const pastasGetId = require("./modules/pastasGetIdModule");
 const subUserGet = require("./modules/subUserGetModule");
+const subUserPost = require("./modules/subUserPostModule");
 
 const app = express();
 const port = 5000;
@@ -71,6 +72,7 @@ app.use("/putTags", putTags);
 app.use("/deleteTags", deleteTags);
 app.use("/getPastas", pastasGetId); 
 app.use("/getSubUser", subUserGet); 
+app.use("/postSubUser", subUserPost); 
 
 
 app.listen(port, () => {
