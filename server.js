@@ -35,6 +35,7 @@ const validateApiKey = require("./modules/validateApiKey");
 const pastasGetId = require("./modules/pastasGetIdModule");
 const subUserGet = require("./modules/subUserGetModule");
 const subUserPost = require("./modules/subUserPostModule");
+const subUserAdminGet = require("./modules/subUserGetIdAdminModule");
 
 const app = express();
 const port = 5000;
@@ -73,6 +74,7 @@ app.use("/deleteTags", deleteTags);
 app.use("/getPastas", pastasGetId); 
 app.use("/getSubUser", subUserGet); 
 app.use("/postSubUser", subUserPost); 
+app.use("/getSubUsersAll", subUserAdminGet); 
 
 
 app.listen(port, () => {
