@@ -5,7 +5,7 @@ const validateApiKey = require('./validateApiKey');
 
 router.put('/:id', validateApiKey, async (req, res) => {
   const { id } = req.params;
-  const { idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto } = req.body;
+  const { cpf, idAdmin, nome, sobrenome, celular, cargo, nivelAcesso, email, foto } = req.body;
 
   try {
     console.log(`Atualizando subUser com ID ${id}`);
