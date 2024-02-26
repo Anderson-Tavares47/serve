@@ -25,6 +25,7 @@
     "pg": "^8.11.3",
     "pg-promise": "^11.5.4",
     "smtp-tester": "^2.1.0",
-    "@sendgrid/mail": "^8.1.0"
+    "@sendgrid/mail": "^8.1.0",
+    "speakeasy": "^2.0.0"
   }
 }
