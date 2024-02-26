@@ -8,7 +8,17 @@ router.post('/', validateApiKey, async (req, res) => {
 
   try {
     console.log('Criando subUser:', nome);
-    const result = await db.one('INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *', [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto]);
+    let query;
+    let values;
+    if (foto) {
+      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *';
+      values = [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto];
+    } else {
+      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
+      values = [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email];
+    }
+
+    const result = await db.one(query, values);
     res.json(result);
   } catch (error) {
     console.error('Erro ao criar um novo subUser:', error);
