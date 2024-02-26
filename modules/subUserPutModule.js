@@ -5,8 +5,9 @@ const validateApiKey = require('./validateApiKey');
 
 router.put('/:id', validateApiKey, async (req, res) => {
   const { id } = req.params;
-  const { cpf, idAdmin, nome, sobrenome, celular, cargo, nivelAcesso, email, foto } = req.body;
-
+  const { idAdmin, nome, sobrenome, celular, cargo, nivelAcesso, email, foto } = req.body;
+  const { cpf } = req.body; 
+  
   try {
     console.log(`Atualizando subUser com ID ${id}`);
     const result = await db.one('UPDATE subUser SET idAdmin = $1, nome = $2, sobrenome = $3, cpf = $4, celular = $5, cargo = $6, nivelAcesso = $7, email = $8, foto = $9 WHERE id = $10 RETURNING *', [idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto, id]);
