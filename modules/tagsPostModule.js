@@ -8,7 +8,7 @@ router.post("/", validateApiKey, async (req, res) => {
 
   try {
     const result = await db.query(
-      "INSERT INTO tags (nome) VALUES ($1) RETURNING *",
+      "INSERT INTO tags (name) VALUES ($1) RETURNING *",
       [nome]
     );
     res.json(result.rows[0]);
