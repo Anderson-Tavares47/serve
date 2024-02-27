@@ -7,8 +7,6 @@ router.post('/', validateApiKey, async (req, res) => {
   const { id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto } = req.body;
 
   try {
-    console.log('Criando subUser:', nome);
-    
     let query;
     let values;
     if (foto) {
