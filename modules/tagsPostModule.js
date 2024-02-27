@@ -4,7 +4,7 @@ const db = require("../db");
 const validateApiKey = require('./validateApiKey');
 
 router.post("/", validateApiKey, async (req, res) => {
-  const { nome } = req.body;
+  const { name } = req.body;
 
   try {
     const result = await db.query(
