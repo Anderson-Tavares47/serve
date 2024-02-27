@@ -11,7 +11,7 @@ router.post("/", validateApiKey, async (req, res) => {
       "INSERT INTO tags (name) VALUES ($1) RETURNING *",
       [name]
     );
-    res.json(result.rows[0]);
+    res.json(result);
   } catch (error) {
     console.error("Erro ao adicionar tag:", error);
     res.status(500).send("Erro Interno do Servidor");
