@@ -49,7 +49,7 @@ const fatoresPut = require("./modules/putFatoresModule");
 const planosGet = require("./modules/planosGetModule");
 const planosPost = require("./modules/planoPostModule");
 const planosPut = require("./modules/planosPutModule");
-const planosDelete = require("./modules/planosDeleteModul")
+const planosDelete = require("./modules/planosDeleteModule")
 
 const app = express();
 const port = 5000;
