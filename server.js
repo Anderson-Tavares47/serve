@@ -104,7 +104,7 @@ app.use("/getPlans", planosGet);
 app.use("/postPlan", planosPost);
 app.use("/putPlan", planosPut);
 app.use("/deletePlan", planosDelete);
-app.use("/getPlansId", planosGetIdModule);
+// app.use("/getPlansId", planosGetIdModule);
 
 
 app.listen(port, () => {
