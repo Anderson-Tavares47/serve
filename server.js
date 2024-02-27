@@ -106,7 +106,6 @@ app.use("/putFatores", fatoresPut);
 // app.use("/deletePlan", planosDelete);
 // app.use("/getPlansId", planosGetIdModule);
 
-
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
 });
