@@ -100,11 +100,6 @@ app.use("/autenticacao", auth);
 app.use("/getUsuarios", usuariosGetId);
 app.use("/putUsuarios", usuariosPut);
 app.use("/putFatores", fatoresPut);
-// app.use("/getPlans", planosGet);
-// app.use("/postPlan", planosPost);
-// app.use("/putPlan", planosPut);
-// app.use("/deletePlan", planosDelete);
-// app.use("/getPlansId", planosGetIdModule);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
