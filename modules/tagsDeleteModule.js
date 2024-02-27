@@ -12,7 +12,7 @@ router.delete("/:tagName", validateApiKey, async (req, res) => {
       [tagName]
     );
 
-    if (result.rows.length > 0) {
+    if (result) {
       res.json(result);
     } else {
       res.status(404).send("Tag não encontrada");
