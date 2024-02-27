@@ -92,7 +92,7 @@ app.use("/getHelp", helpGet);
 app.use("/deleteHelp", helpDelete);
 app.use("/autenticacao", auth);
 app.use("/getUsuarios", usuariosGetId);
-app.use("/putusuarios", usuariosPut);
+app.use("/putUsuarios", usuariosPut);
 
 
 
