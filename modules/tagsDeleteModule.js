@@ -8,7 +8,7 @@ router.delete("/:tagName", validateApiKey, async (req, res) => {
 
   try {
     const result = await db.query(
-      "DELETE FROM tags WHERE nome = $1 RETURNING *",
+      "DELETE FROM tags WHERE name = $1 RETURNING *",
       [tagName]
     );
 
