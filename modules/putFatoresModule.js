@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../db");
 const validateApiKey = require('./validateApiKey');
 
-router.put('/:id/dfatores', validateApiKey, async (req, res) => {
+router.put('/:id', validateApiKey, async (req, res) => {
     const { id } = req.params;
     const { dfatores } = req.body;
   
