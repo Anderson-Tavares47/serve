@@ -11,8 +11,8 @@ router.put('/:id', validateApiKey, async (req, res) => {
       console.log(`Atualizando usuário com ID ${id}`);
       const columns = Object.keys(opcional).map((key, index) => `${key} = $${index + 6}`).join(', ');
       const values = Object.values(opcional);
-      const query = `UPDATE usuarios SET nome = $1, sobrenome = $2, email = $3, hashedSenha = $4, isAdmin = $5, ${columns} WHERE id = $${values.length + 6} RETURNING *`;
-      const result = await db.one(query, [nome, sobrenome, email, hashedSenha, isAdmin, ...values, id]);
+      const query = `UPDATE usuarios SET nome = $1, sobrenome = $2, email = $3, senha = $4, isAdmin = $5, ${columns} WHERE id = $${values.length + 6} RETURNING *`;
+      const result = await db.one(query, [nome, sobrenome, email, senha, isAdmin, ...values, id]);
       res.json(result);
     } catch (error) {
       console.error('Erro ao atualizar usuário por ID:', error);
