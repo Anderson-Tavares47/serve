@@ -12,8 +12,8 @@ router.delete("/:id", validateApiKey, async (req, res) => {
       [id]
     );
 
-    if (result.rows.length > 0) {
-      res.json(result.rows[0]);
+    if (result) {
+      res.json(result);
     } else {
       res.status(404).send("Tag não encontrada");
     }
