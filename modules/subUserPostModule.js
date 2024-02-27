@@ -8,6 +8,7 @@ router.post('/', validateApiKey, async (req, res) => {
 
   try {
     console.log('Criando subUser:', nome);
+    
     let query;
     let values;
     if (foto) {
