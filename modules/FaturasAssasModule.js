@@ -45,11 +45,13 @@ router.get("/", async (req, res) => {
 // Rota para buscar cobranças por ID do cliente
 router.get("/payments/customer/:id", async (req, res) => {
   const customerId = req.params.id;
+  console.log(customerId)
   try {
     const response = await axios.get(
       `https://sandbox.asaas.com/api/v3/payments?customer=${customerId}`,
       asaasApiOptions
     );
+    console.log(response)
     res.json(response.data);
   } catch (error) {
     console.error(error);
