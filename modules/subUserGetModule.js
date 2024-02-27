@@ -5,6 +5,7 @@ const validateApiKey = require('./validateApiKey');
 
 router.get('/:idAdmin/:id', validateApiKey, async (req, res) => {
   const { idAdmin, id } = req.params;
+  console.log(id)
 
   try {
     console.log(`Obtendo subUser com idAdmin ${idAdmin} e id ${id}`);
