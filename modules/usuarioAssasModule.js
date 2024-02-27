@@ -1,8 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const router = express.Router();
-const acess_token = process.env.ACCESS_TOKEN_ASSAS;
-// Configuração da API do Asaas
+const acess_token = "$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwNzAxMDY6OiRhYWNoXzEyMjVlOTU3LTEyYzYtNDZiNS1iMTFhLWVjNDA0MTEwMmZmYQ==";
 const asaasApiOptions = {
   headers: {
     accept: "application/json",
