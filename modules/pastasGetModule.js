@@ -1,4 +1,3 @@
-// Importe o módulo 'express' e 'pg-promise'
 const express = require('express');
 const db = require('../db');
 const router = express.Router();
