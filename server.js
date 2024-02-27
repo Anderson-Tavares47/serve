@@ -46,6 +46,10 @@ const auth = require("./modules/authModule");
 const usuariosGetId = require("./modules/usuariosGetIdModule");
 const usuariosPut = require("./modules/usuariosPutModule");
 const fatoresPut = require("./modules/putFatoresModule");
+const planosGet = require("./modules/planosGetModule");
+const planosPost = require("./modules/planoPostModule");
+const planosPut = require("./modules/planosPutModule");
+const planosDelete = require("./modules/planosDeleteModule")
 
 const app = express();
 const port = 5000;
@@ -95,6 +99,10 @@ app.use("/autenticacao", auth);
 app.use("/getUsuarios", usuariosGetId);
 app.use("/putUsuarios", usuariosPut);
 app.use("/putFatores", fatoresPut);
+app.use("/getPlans", planosGet);
+app.use("/postPlan", planosPost);
+app.use("/putPlan", planosPut);
+app.use("/deletePlan", planosDelete);
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
