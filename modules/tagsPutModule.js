@@ -9,7 +9,7 @@ router.put("/:tagName", validateApiKey, async (req, res) => {
 
   try {
     const result = await db.query(
-      "UPDATE tags SET nome = $1 WHERE nome = $2 RETURNING *",
+      "UPDATE tags SET name = $1 WHERE name = $2 RETURNING *",
       [newTagName, tagName]
     );
 
