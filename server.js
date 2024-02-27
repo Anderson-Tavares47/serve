@@ -45,6 +45,7 @@ const helpDelete = require("./modules/helpDeleteModule");
 const auth = require("./modules/authModule");
 const usuariosGetId = require("./modules/usuariosGetIdModule");
 const usuariosPut = require("./modules/usuariosPutModule");
+const fatoresPut = require("./modules/putFatoresModule");
 
 const app = express();
 const port = 5000;
@@ -93,6 +94,7 @@ app.use("/deleteHelp", helpDelete);
 app.use("/autenticacao", auth);
 app.use("/getUsuarios", usuariosGetId);
 app.use("/putUsuarios", usuariosPut);
+app.use("/putFatores", fatoresPut);
 
 
 
