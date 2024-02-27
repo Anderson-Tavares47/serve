@@ -43,6 +43,8 @@ const helpPut = require("./modules/helpPutModule");
 const helpGet = require("./modules/helpGetModule");
 const helpDelete = require("./modules/helpDeleteModule");
 const auth = require("./modules/authModule");
+const usuariosGetId = require("./modules/usuariosGetIdModule");
+const usuariosPut = require("./modules/usuariosPutModule");
 
 const app = express();
 const port = 5000;
@@ -89,6 +91,9 @@ app.use("/putHelp", helpPut);
 app.use("/getHelp", helpGet);
 app.use("/deleteHelp", helpDelete);
 app.use("/autenticacao", auth);
+app.use("/getUsuarios", usuariosGetId);
+app.use("/putusuarios", usuariosPut);
+
 
 
 app.listen(port, () => {
