@@ -8,12 +8,12 @@ router.delete("/:id", validateApiKey, async (req, res) => {
 
   try {
     const result = await db.query(
-      "DELETE FROM tags WHERE name = $1 RETURNING *",
+      "DELETE FROM tags WHERE id = $1 RETURNING *",
       [id]
     );
 
-    if (result) {
-      res.json(result);
+    if (result.rows.length > 0) {
+      res.json(result.rows[0]);
     } else {
       res.status(404).send("Tag não encontrada");
     }
