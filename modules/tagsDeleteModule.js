@@ -4,12 +4,12 @@ const db = require("../db");
 const validateApiKey = require('./validateApiKey');
 
 router.delete("/:id", validateApiKey, async (req, res) => {
-  const tagName = req.params.tagName;
+  const id = req.params.id;
 
   try {
     const result = await db.query(
       "DELETE FROM tags WHERE name = $1 RETURNING *",
-      [tagName]
+      [id]
     );
 
     if (result) {
