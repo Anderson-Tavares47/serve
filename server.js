@@ -54,6 +54,7 @@ const tokenGet = require("./modules/tokenGetModule");
 const tokenDelete = require("./modules/tokenDeleteModule");
 const tokenPost = require("./modules/tokenPostModule");
 const tokenPut = require("./modules/tokenPutModule");
+const usuariosDelete = require("./modules/usuariosDeleteModule");
 
 const app = express();
 const port = 5000;
@@ -111,6 +112,7 @@ app.use("/getToken", tokenGet);
 app.use("/deleteToken", tokenDelete);
 app.use("/postToken", tokenPost);
 app.use("/putToken", tokenPut);
+app.use("/deleteUsuario", usuariosDelete);
 
 
 app.listen(port, () => {
