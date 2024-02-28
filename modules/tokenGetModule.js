@@ -9,7 +9,7 @@ router.get('/:iduser', validateApiKey, async (req, res) => {
     try {
         const result = await db.query('SELECT * FROM tokens WHERE iduser = $1', [iduser]);
         
-        if (result) {
+        if (result.length > 0) {
             res.json(result);
         } else {
             res.status(404).send('Token não encontrado para o usuário especificado.');
