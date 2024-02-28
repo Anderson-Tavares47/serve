@@ -9,7 +9,7 @@ router.delete('/:id', validateApiKey, async (req, res) => {
     try {
         const result = await db.query('DELETE FROM tokens WHERE id = $1 RETURNING *', [id]);
         
-        if (result) {
+        if (result.row) {
             res.json(result);
         } else {
             res.status(404).send('Token não encontrado.');
