@@ -3,16 +3,16 @@ const router = express.Router();
 const db = require('../db');
 const validateApiKey = require('./validateApiKey');
 
-router.get('/:id', validateApiKey, async (req, res) => {
-    const { id } = req.params;
+router.get('/:iduser', validateApiKey, async (req, res) => {
+    const { iduser } = req.params;
 
     try {
-        const result = await db.query('SELECT * FROM tokens WHERE id = $1', [id]);
+        const result = await db.query('SELECT * FROM tokens WHERE iduser = $1', [iduser]);
         
         if (result) {
             res.json(result);
         } else {
-            res.status(404).send('Token não encontrado.');
+            res.status(404).send('Token não encontrado para o usuário especificado.');
         }
     } catch (error) {
         console.error('Erro ao buscar o token:', error);
