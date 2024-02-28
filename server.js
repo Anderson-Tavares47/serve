@@ -49,7 +49,11 @@ const fatoresPut = require("./modules/putFatoresModule");
 const planosGet = require("./modules/planosGetModule");
 const planosPost = require("./modules/planoPostModule");
 const planosPut = require("./modules/planosPutModule");
-const planosDelete = require("./modules/planosDeleteModule")
+const planosDelete = require("./modules/planosDeleteModule");
+const tokenGet = require("./modules/tokenGetModule");
+const tokenDelete = require("./modules/tokenDeleteModule");
+const tokenPost = require("./modules/tokenPostModule");
+const tokenPut = require("./modules/tokenPutModule");
 
 const app = express();
 const port = 5000;
@@ -103,6 +107,10 @@ app.use("/getPlans", planosGet);
 app.use("/postPlan", planosPost);
 app.use("/putPlan", planosPut);
 app.use("/deletePlan", planosDelete);
+app.use("/getToken", tokenGet);
+app.use("/deleteToken", tokenDelete);
+app.use("/postToken", tokenPost);
+app.use("/putToken", tokenPut);
 
 
 app.listen(port, () => {
