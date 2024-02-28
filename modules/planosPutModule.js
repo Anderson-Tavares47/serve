@@ -10,7 +10,7 @@ router.put('/:id', validateApiKey, async (req, res) => {
 
     try {
         const result = await db.query('UPDATE planos SET nome = $1, valor = $2, descricao = $3 WHERE id = $4 RETURNING *', [nome, valor, descricao, id]);
-        if (result.rows.length === 0) {
+        if (result.rows) {
             return res.status(404).json({ message: 'Plano não encontrado' });
         }
         res.json(result.rows[0]);
