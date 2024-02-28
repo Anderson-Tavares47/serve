@@ -4,7 +4,9 @@ const db = require("../db");
 const validateApiKey = require('./validateApiKey');
 
 router.put('/:id', validateApiKey, async (req, res) => {
-    const { id } = req.params;
+    let { id } = req.params; // Captura o ID como string
+    id = parseInt(id); // Converte o ID para um número inteiro
+
     const { nome, sobrenome, email, senha, isAdmin, cargo, ...opcional } = req.body;
   
     try {
