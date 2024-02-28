@@ -9,7 +9,7 @@ router.delete('/:id', validateApiKey, async (req, res) => {
     try {
         const result = await db.query('DELETE FROM tokens WHERE id = $1 RETURNING *', [id]);
         
-        if (result.row) {
+        if (result) {
             res.json(result);
             res.send("excluido com sucesso")
         } else {
