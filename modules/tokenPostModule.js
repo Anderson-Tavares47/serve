@@ -10,7 +10,7 @@ router.post('/', validateApiKey, async (req, res) => {
     try {
         const result = await db.query('INSERT INTO tokens (nome, token, iduser) VALUES ($1, $2, $3) RETURNING *', [nome, token, iduser]);
         
-        res.status(201).json(result.rows[0]);
+        res.status(201).json(result);
     } catch (error) {
         console.error('Erro ao criar um novo token:', error);
         res.status(500).send('Erro Interno do Servidor');
