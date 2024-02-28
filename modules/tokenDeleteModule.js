@@ -11,6 +11,7 @@ router.delete('/:id', validateApiKey, async (req, res) => {
         
         if (result.row) {
             res.json(result);
+            res.send("excluido com sucesso")
         } else {
             res.status(404).send('Token não encontrado.');
         }
