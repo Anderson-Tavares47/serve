@@ -9,9 +9,8 @@ router.put('/:id', validateApiKey, async (req, res) => {
 
     try {
         const result = await db.query('UPDATE tokens SET nome = $1, token = $2, iduser = $3 WHERE id = $4 RETURNING *', [nome, token, iduser, id]);
-        console.log(result)
         
-        if (result) {
+        if (result !== null) {
             res.json(result);
         } else {
             res.status(404).send('Token não encontrado.');
