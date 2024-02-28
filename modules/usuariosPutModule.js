@@ -11,7 +11,7 @@ router.put('/:id', validateApiKey, async (req, res) => {
   try {
     console.log(`Atualizando usuário com ID ${id}`);
     
-    if (userData.senha) 
+    if (userData.senha) {
       const hashedSenha = await bcrypt.hash(userData.senha, 10);
       userData.senha = hashedSenha;
     }
@@ -40,4 +40,3 @@ router.put('/:id', validateApiKey, async (req, res) => {
 });
 
 module.exports = router;
-
