@@ -13,7 +13,7 @@ router.put('/:id', validateApiKey, async (req, res) => {
         if (result.rows) {
             return res.status(404).json({ message: 'Plano não encontrado' });
         }
-        res.json(result.rows[0]);
+        res.json(result);
     } catch (error) {
         console.error('Erro ao atualizar informações do plano:', error);
         res.status(500).send('Erro Interno do Servidor');
