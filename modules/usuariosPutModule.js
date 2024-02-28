@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 const db = require("../db");
 const validateApiKey = require('./validateApiKey');
 
@@ -10,6 +11,11 @@ router.put('/:id', validateApiKey, async (req, res) => {
   try {
     console.log(`Atualizando usuário com ID ${id}`);
     
+    if (userData.senha) 
+      const hashedSenha = await bcrypt.hash(userData.senha, 10);
+      userData.senha = hashedSenha;
+    }
+
     let query = 'UPDATE usuarios SET ';
     const values = [];
     let index = 1;
@@ -34,3 +40,4 @@ router.put('/:id', validateApiKey, async (req, res) => {
 });
 
 module.exports = router;
+
