@@ -15,7 +15,8 @@ router.delete('/:id', validateApiKey, async (req, res) => {
     } catch (error) {
         console.error('Erro ao excluir plano:', error);
         res.status(500).send('Erro Interno do Servidor');
-    }
+    }   
+    
 });
 
 module.exports = router;
