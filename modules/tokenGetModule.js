@@ -9,8 +9,8 @@ router.get('/:id', validateApiKey, async (req, res) => {
     try {
         const result = await db.query('SELECT * FROM tokens WHERE id = $1', [id]);
         
-        if (result.rows.length > 0) {
-            res.json(result.rows[0]);
+        if (result) {
+            res.json(result);
         } else {
             res.status(404).send('Token não encontrado.');
         }
