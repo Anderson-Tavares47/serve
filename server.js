@@ -56,6 +56,7 @@ const tokenPost = require("./modules/tokenPostModule");
 const tokenPut = require("./modules/tokenPutModule");
 const usuariosDelete = require("./modules/usuariosDeleteModule");
 const planosGetId = require("./modules/planosGetIdModule");
+const planosGetIdUser = require("./modules/planosGetIdUserModule");
 
 const app = express();
 const port = 5000;
@@ -115,6 +116,7 @@ app.use("/postToken", tokenPost);
 app.use("/putToken", tokenPut);
 app.use("/deleteUsuario", usuariosDelete);
 app.use("/getIdPlans", usuariosGetId)
+app.use("/getIdUserPlans", planosGetIdUser)
 
 
 app.listen(port, () => {
