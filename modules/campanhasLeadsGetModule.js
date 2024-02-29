@@ -3,7 +3,7 @@ const db = require('../db');
 const router = express.Router();
 const validateApiKey = require('./validateApiKey');
 
-router.get('/total', validateApiKey, async (req, res) => {
+router.get('/', validateApiKey, async (req, res) => {
   try {
     const resultadoCampanhas = await db.one('SELECT SUM(valor) AS valor_total_campanhas FROM campanhas');
 
