@@ -3,20 +3,20 @@ const db = require('../db');
 const router = express.Router();
 const validateApiKey = require('./validateApiKey');
 
-router.get('/:userid', validateApiKey, async (req, res) => {
-  const userid = req.params.userid;
+router.get('/:plano', validateApiKey, async (req, res) => {
+  const plano = req.params.plano;
 
   try {
-    const usuario = await db.oneOrNone('SELECT * FROM planos WHERE userid = $1', [userid]);
+    const usuarios = await db.manyOrNone('SELECT * FROM usuarios WHERE plano = $1', [plano]);
 
-    if (usuario) {
-      res.status(200).json(usuario);
+    if (usuarios && usuarios.length > 0) {
+      res.status(200).json(usuarios);
     } else {
-      res.status(404).json({ message: 'Usuário não encontrado' });
+      res.status(404).json({ message: 'Usuários não encontrados para este plano' });
     }
   } catch (error) {
-    console.error('Erro ao recuperar usuário por userid:', error);
-    res.status(500).json({ error: 'Erro ao recuperar usuário por userid' });
+    console.error('Erro ao recuperar usuários por plano:', error);
+    res.status(500).json({ error: 'Erro ao recuperar usuários por plano' });
   }
 });
 
