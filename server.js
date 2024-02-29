@@ -57,6 +57,7 @@ const tokenPut = require("./modules/tokenPutModule");
 const usuariosDelete = require("./modules/usuariosDeleteModule");
 const planosGetId = require("./modules/planosGetIdModule");
 const planosGetIdUser = require("./modules/planosGetIdUserModule");
+const campanhasLeadsGet = require("./modules/campanhasLeadsGetModule");
 
 const app = express();
 const port = 5000;
@@ -115,8 +116,9 @@ app.use("/deleteToken", tokenDelete);
 app.use("/postToken", tokenPost);
 app.use("/putToken", tokenPut);
 app.use("/deleteUsuario", usuariosDelete);
-app.use("/getIdPlans", usuariosGetId)
-app.use("/getIdUserPlans", planosGetIdUser)
+app.use("/getIdPlans", usuariosGetId);
+app.use("/getIdUserPlans", planosGetIdUser);
+app.use("/total", campanhasLeadsGetModule);
 
 
 app.listen(port, () => {
