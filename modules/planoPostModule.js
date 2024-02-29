@@ -10,8 +10,8 @@ router.post('/', validateApiKey, async (req, res) => {
     try {
         const result = await db.query('INSERT INTO planos (nome, valor, descricao, userid) VALUES ($1, $2, $3, $4) RETURNING *', [nome, valor, descricao, userid]);
 
-        if (result.rows.length > 0) { // Verificando se a inserção foi bem-sucedida
-            res.status(201).json(result.rows[0]);
+        if (result.length > 0) {
+            res.status(201).json(result);
         } else {
             res.status(404).send('Nenhum plano foi criado.');
         }
