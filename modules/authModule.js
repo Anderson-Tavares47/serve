@@ -1,5 +1,6 @@
 const express = require('express');
 const speakeasy = require('speakeasy');
+const validateApiKey = require('./validateApiKey');
 
 const router = express.Router();
 
@@ -13,7 +14,7 @@ function gerarSegredo() {
   return segredo;
 }
 
-router.get("/", (req, res) => {
+router.get("/", validateApiKey, (req, res) => {
   try {
     const segredo = gerarSegredo();
 
@@ -24,7 +25,7 @@ router.get("/", (req, res) => {
   }
 });
 
-router.post("/verificar-codigo", (req, res) => {
+router.post("/verificar-codigo", validateApiKey, (req, res) => {
   try {
     const { codigo, segredo } = req.body;
     const tokenValido = speakeasy.totp.verify({ secret: segredo.ascii, encoding: 'ascii', token: codigo });
