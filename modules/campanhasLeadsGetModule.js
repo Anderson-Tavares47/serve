@@ -5,6 +5,7 @@ const validateApiKey = require('./validateApiKey');
 
 router.get('/', validateApiKey, async (req, res) => {
   const { userid } = req.query; // Obtenha o userid dos parâmetros de consulta
+  console.log(userid)
   
   try {
     // Consulta SQL para obter o total de itens na tabela de campanhas para o userid fornecido
@@ -19,6 +20,7 @@ router.get('/', validateApiKey, async (req, res) => {
       total_lead: resultadoLead.total_lead
     };
 
+    console.log(resultadoTotal)
     res.status(200).json(resultadoTotal);
   } catch (error) {
     console.error('Erro ao calcular o total de itens das campanhas e leads:', error);
