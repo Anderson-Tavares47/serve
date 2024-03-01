@@ -10,10 +10,10 @@ router.post('/', validateApiKey, async (req, res) => {
     let query;
     let values;
     if (foto) {
-      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto, plano) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *';
+      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, "nivelAcesso", email, foto, plano) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *';
       values = [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto, plano];
     } else {
-      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, plano) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *';
+      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, "nivelAcesso", email, plano) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *';
       values = [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, plano];
     }
 
