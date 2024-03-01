@@ -22,6 +22,7 @@ router.post("/", validateApiKey, async (req, res) => {
         id: user.id,
         nome: user.nome,
         email: user.email,
+        dfatores: user.dfatores
       };
 
       res.status(200).json({
