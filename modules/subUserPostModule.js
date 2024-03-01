@@ -4,17 +4,17 @@ const db = require("../db");
 const validateApiKey = require('./validateApiKey');
 
 router.post('/', validateApiKey, async (req, res) => {
-  const { id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto } = req.body;
+  const { id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto, plano } = req.body;
 
   try {
     let query;
     let values;
     if (foto) {
-      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *';
-      values = [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto];
+      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto, plano) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *';
+      values = [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, foto, plano];
     } else {
-      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *';
-      values = [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email];
+      query = 'INSERT INTO subUser (id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, plano) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *';
+      values = [id, idAdmin, nome, sobrenome, cpf, celular, cargo, nivelAcesso, email, plano];
     }
 
     const result = await db.one(query, values);
