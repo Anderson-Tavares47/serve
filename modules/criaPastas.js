@@ -3,17 +3,16 @@ const router = express.Router();
 const db = require('../db');
 const validateApiKey = require('./validateApiKey');
 
-// Create a new folder
 router.post('/', validateApiKey, async (req, res) => {
-  const { name } = req.body;
+  const { name, userid } = req.body; 
 
   try {
-    console.log('Creating folder:', name);
-    const result = await db.one('INSERT INTO pastas (name) VALUES ($1) RETURNING *', [name]);
+    console.log('Criando pasta:', name);
+    const result = await db.one('INSERT INTO pastas (name, userid) VALUES ($1, $2) RETURNING *', [name, userid]);
     res.json(result);
   } catch (error) {
-    console.error('Error creating a new folder:', error);
-    res.status(500).send('Internal Server Error');
+    console.error('Erro ao criar uma nova pasta:', error);
+    res.status(500).send('Erro Interno do Servidor');
   }
 });
 
