@@ -60,6 +60,7 @@ const planosGetIdUser = require("./modules/planosGetIdUserModule");
 const pastasGetIdUser = require("./modules/pastasGetIdUserModule");
 const campanhasGetIdUser = require("./modules/campanhasGetIdUserModule");
 const leadsGetIdUser = require("./modules/leadsGetIdUserModule");
+const campanhasLeadsGet = require("./modules/campanhasLeadsGetModule");
 
 const app = express();
 const port = 5000;
@@ -123,6 +124,7 @@ app.use("/getIdUserPlans", planosGetIdUser);
 app.use("/getIdUserPasta", pastasGetIdUser);
 app.use("/getCampanhasIdUser", campanhasGetIdUser);
 app.use("/getLeadsIdUser", leadsGetIdUser);
+app.use("/getTotal", campanhasLeadsGet);
 
 
 app.listen(port, () => {
