@@ -61,7 +61,7 @@ const pastasGetIdUser = require("./modules/pastasGetIdUserModule");
 const campanhasGetIdUser = require("./modules/campanhasGetIdUserModule");
 const leadsGetIdUser = require("./modules/leadsGetIdUserModule");
 const campanhasLeadsGet = require("./modules/campanhasLeadsGetModule");
-const allowCors = require('./allowCors'); // Importa o middleware allowCors
+const allowCors = require("./modules/headers");
 
 const app = express();
 
