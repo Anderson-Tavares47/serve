@@ -1,3 +1,6 @@
+// allowCors.js
+
+// Middleware para adicionar cabeçalhos CORS às respostas do servidor
 const allowCors = fn => async (req, res) => {
   // Define os cabeçalhos CORS
   res.setHeader('Access-Control-Allow-Credentials', true); // Permite credenciais nas solicitações CORS
@@ -18,11 +21,5 @@ const allowCors = fn => async (req, res) => {
   return await fn(req, res);
 }
 
-// Função de manipulação padrão para uso com o middleware CORS
-const handler = (req, res) => {
-  const d = new Date();
-  res.end(d.toString()); // Retorna a data atual como resposta
-}
-
 // Exporta o middleware allowCors para uso em outras partes do código
-module.exports = allowCors(handler);
+module.exports = allowCors;
