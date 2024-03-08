@@ -61,15 +61,19 @@ const pastasGetIdUser = require("./modules/pastasGetIdUserModule");
 const campanhasGetIdUser = require("./modules/campanhasGetIdUserModule");
 const leadsGetIdUser = require("./modules/leadsGetIdUserModule");
 const campanhasLeadsGet = require("./modules/campanhasLeadsGetModule");
+const allowCors = require('./allowCors'); // Importa o middleware allowCors
 
 const app = express();
+
+app.use(allowCors);
+
 const port = 5000;
-// app.use(cors());
-app.use(cors({
-  origin: "https://funnel-ads-oficial.vercel.app",
-  methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-  allowedHeaders: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" 
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: "https://funnel-ads-oficial.vercel.app",
+//   methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+//   allowedHeaders: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" 
+// }));
 
 app.use(bodyParser.json());
 
