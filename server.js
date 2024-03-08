@@ -66,10 +66,11 @@ const app = express();
 const port = 5000;
 // app.use(cors());
 app.use(cors({
-  origin: "https://funnel-ads-oficial.vercel.app/Login",
+  origin: "*",
   methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
   allowedHeaders: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" 
 }));
+
 app.use(bodyParser.json());
 
 app.use(validateApiKey);
