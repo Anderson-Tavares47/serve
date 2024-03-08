@@ -65,19 +65,17 @@ const allowCors = require("./modules/allowCors");
 
 const app = express();
 
-// app.use(allowCors);
-
 const port = 5000;
-// app.use(cors());
-app.use(cors({
-  origin: "https://funnel-ads-oficial.vercel.app",
-  methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-  allowedHeaders: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" 
-}));
-
 app.use(bodyParser.json());
 
 app.use(validateApiKey);
+app.use(cors());
+// app.use(cors({
+//   origin: "https://funnel-ads-oficial.vercel.app",
+//   methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+//   allowedHeaders: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" 
+// }));
+
 
 app.use("/criar-conta", criarContaModule);
 app.use("/login", login);
