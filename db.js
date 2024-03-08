@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')();
 
 const db = pgp({
-  connectionString: 'postgres://default:tc69oSAOvPFH@ep-red-wildflower-a4b5n1jo.us-east-1.aws.neon.tech:5432/verceldb',
+  connectionString: 'postgres://yixmxjjh:146A5tfdyeKyKtGjbBUPxh7ujOaWZFh3@isabelle.db.elephantsql.com/yixmxjjh',
   ssl: {
     rejectUnauthorized: false
   }
