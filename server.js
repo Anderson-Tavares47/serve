@@ -64,12 +64,12 @@ const campanhasLeadsGet = require("./modules/campanhasLeadsGetModule");
 const allowCors = require("./modules/allowCors");
 
 const app = express();
-
-const port = 5000;
 app.use(bodyParser.json());
+const port = 5000;
+
+app.use(cors());
 
 app.use(validateApiKey);
-app.use(cors());
 // app.use(cors({
 //   origin: "https://funnel-ads-oficial.vercel.app",
 //   methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
