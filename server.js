@@ -62,6 +62,7 @@ const campanhasGetIdUser = require("./modules/campanhasGetIdUserModule");
 const leadsGetIdUser = require("./modules/leadsGetIdUserModule");
 const campanhasLeadsGet = require("./modules/campanhasLeadsGetModule");
 const allowCors = require("./modules/allowCors");
+const authInitial = require("./modules/authInitialModule.js");
 
 const app = express();
 app.use(bodyParser.json());
@@ -133,6 +134,7 @@ app.use("/getIdUserPasta", pastasGetIdUser);
 app.use("/getCampanhasIdUser", campanhasGetIdUser);
 app.use("/getLeadsIdUser", leadsGetIdUser);
 app.use("/getTotal", campanhasLeadsGet);
+app.use("/authInitial", authInitial);
 
 
 app.listen(port, () => {
