@@ -7,7 +7,7 @@ router.delete('/:id', validateApiKey, async (req, res) => {
     const { id } = req.params;
   
     try {
-      await db.none('DELETE FROM whatsToken WHERE id = $1', [id]);
+      await db.none('DELETE FROM whatstoken WHERE id = $1', [id]);
       res.status(204).send();
     } catch (error) {
       console.error('Erro ao deletar token:', error);
