@@ -8,7 +8,7 @@ router.put('/:id', validateApiKey, async (req, res) => {
     const { idUser, token } = req.body;
   
     try {
-      const result = await db.one('UPDATE whatsToken SET idUser = $1, token = $2 WHERE id = $3 RETURNING *', [idUser, token, id]);
+      const result = await db.one('UPDATE whatstoken SET idUser = $1, token = $2 WHERE id = $3 RETURNING *', [idUser, token, id]);
       res.json(result);
     } catch (error) {
       console.error('Erro ao atualizar token:', error);
