@@ -8,7 +8,7 @@ router.post('/', validateApiKey, async (req, res) => {
 
   try {
     console.log('Criando token:', token);
-    const result = await db.one('INSERT INTO whatsToken (idUser, token) VALUES ($1, $2) RETURNING *', [idUser, token]);
+    const result = await db.one('INSERT INTO whatstoken (idUser, token) VALUES ($1, $2) RETURNING *', [idUser, token]);
     res.json(result);
   } catch (error) {
     console.error('Erro ao criar um novo token:', error);
