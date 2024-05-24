@@ -68,6 +68,11 @@ const whatsTokenGet = require("./modules/whatsTokenGetModule.js");
 const whatsTokenGetId = require("./modules/whatsTokenGetIdModule.js");
 const whatsTokenPut = require("./modules/whatsTokenPutModule.js");
 const whatsTokenDelete = require("./modules/whatsTokenDeleteModule.js");
+const whatsappFluxCreate = require("./modules/whatsappFluxCreate.js");
+const whatsappFluxGet = require("./modules/whatsTokenGetModule.js")
+const whatsappFluxGetId = require("./modules/whatsTokenGetIdModule.js")
+const whatsappFluxPut = require("./modules/whatsTokenPutModule.js")
+const whatsappFluxDelete = require("./modules/whatsTokenDeleteModule.js")
 
 const app = express();
 app.use(bodyParser.json());
@@ -145,6 +150,11 @@ app.use("/whatsGetToken", whatsTokenGet);
 app.use("/whatsGetTokenId", whatsTokenGetId);
 app.use("/whatsPutToken", whatsTokenPut);
 app.use("/whatsDeleteToken", whatsTokenDelete);
+app.use("/whatsFluxCreate", whatsappFluxCreate);
+app.use("/whatsFluxGet", whatsappFluxGet);
+app.use("/whatsFluxGetId", whatsappFluxGetId);
+app.use("/whatsFluxPut", whatsappFluxPut);
+app.use("/whatsFluxDelete", whatsappFluxDelete);
 
 
 app.listen(port, () => {
