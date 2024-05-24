@@ -63,6 +63,11 @@ const leadsGetIdUser = require("./modules/leadsGetIdUserModule");
 const campanhasLeadsGet = require("./modules/campanhasLeadsGetModule");
 const allowCors = require("./modules/allowCors");
 const authInitial = require("./modules/authInitialModule.js");
+const whatsTokenCreate = require("./modules/whatsTokenCreateModule.js");
+const whatsTokenGet = require("./modules/whatsTokenGetModule.js");
+const whatsTokenGetId = require("./modules/whatsTokenGetIdModule.js");
+const whatsTokenPut = require("./modules/whatsTokenPutModule.js");
+const whatsTokenDelete = require("./modules/whatsTokenDeleteModule.js");
 
 const app = express();
 app.use(bodyParser.json());
@@ -135,6 +140,11 @@ app.use("/getCampanhasIdUser", campanhasGetIdUser);
 app.use("/getLeadsIdUser", leadsGetIdUser);
 app.use("/getTotal", campanhasLeadsGet);
 app.use("/authInitial", authInitial);
+app.use("/whatsToken", whatsTokenCreate);
+app.use("/whatsGetToken", whatsTokenGet);
+app.use("/whatsGetTokenId", whatsTokenGetId);
+app.use("/whatsPutToken", whatsTokenPut);
+app.use("/whatsDeleteToken", whatsTokenDelete);
 
 
 app.listen(port, () => {
