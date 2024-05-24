@@ -5,7 +5,7 @@ const validateApiKey = require('./validateApiKey');
 
 router.get('/', validateApiKey, async (req, res) => {
     try {
-      const result = await db.any('SELECT * FROM whatsToken');
+      const result = await db.any('SELECT * FROM whatstoken');
       res.json(result);
     } catch (error) {
       console.error('Erro ao obter tokens:', error);
