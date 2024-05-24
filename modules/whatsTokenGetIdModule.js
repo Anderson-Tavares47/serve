@@ -7,7 +7,7 @@ router.get('/:id', validateApiKey, async (req, res) => {
     const { id } = req.params;
   
     try {
-      const result = await db.one('SELECT * FROM whatsToken WHERE id = $1', [id]);
+      const result = await db.one('SELECT * FROM whatstoken WHERE id = $1', [id]);
       res.json(result);
     } catch (error) {
       console.error('Erro ao obter token:', error);
