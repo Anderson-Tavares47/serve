@@ -69,10 +69,11 @@ const whatsTokenGetId = require("./modules/whatsTokenGetIdModule.js");
 const whatsTokenPut = require("./modules/whatsTokenPutModule.js");
 const whatsTokenDelete = require("./modules/whatsTokenDeleteModule.js");
 const whatsappFluxCreate = require("./modules/whatsappFluxCreate.js");
-const whatsappFluxGet = require("./modules/whatsTokenGetModule.js")
-const whatsappFluxGetId = require("./modules/whatsTokenGetIdModule.js")
-const whatsappFluxPut = require("./modules/whatsTokenPutModule.js")
-const whatsappFluxDelete = require("./modules/whatsTokenDeleteModule.js")
+const whatsappFluxGet = require("./modules/whatsTokenGetModule.js");
+const whatsappFluxGetId = require("./modules/whatsTokenGetIdModule.js");
+const whatsappFluxPut = require("./modules/whatsTokenPutModule.js");
+const whatsappFluxDelete = require("./modules/whatsTokenDeleteModule.js");
+const { scheduleTask, cancelTask } = require('./modules/cronJobModule.js');
 
 const app = express();
 app.use(bodyParser.json());
@@ -86,6 +87,23 @@ app.use(validateApiKey);
 //   methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
 //   allowedHeaders: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" 
 // }));
+
+app.post('/agendar', validateApiKey, (req, res) => {
+  const { id, dateTime, taskData } = req.body;
+
+  scheduleTask(id, dateTime, () => {
+    console.log(`Executando tarefa: ${taskData}`);
+  });
+
+  res.send(`Tarefa agendada com ID: ${id}`);
+});
+
+// Rota para cancelar uma tarefa
+app.post('/cancela-agendamento', validateApiKey, (req, res) => {
+  const { id } = req.body;
+  cancelTask(id);
+  res.send(`Tarefa cancelada com ID: ${id}`);
+});
 
 
 app.use("/criar-conta", criarContaModule);
@@ -155,6 +173,7 @@ app.use("/whatsFluxGet", whatsappFluxGet);
 app.use("/whatsFluxGetId", whatsappFluxGetId);
 app.use("/whatsFluxPut", whatsappFluxPut);
 app.use("/whatsFluxDelete", whatsappFluxDelete);
+
 
 
 app.listen(port, () => {
