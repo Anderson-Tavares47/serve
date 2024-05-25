@@ -77,6 +77,10 @@ const { scheduleTask, cancelTask } = require('./modules/cronJobModule.js');
 
 const app = express();
 app.use(bodyParser.json());
+
+// Aumentar o limite de tamanho do payload
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 const port = 5000;
 
 app.use(cors());
