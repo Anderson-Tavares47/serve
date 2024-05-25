@@ -76,21 +76,26 @@ const whatsappFluxDelete = require("./modules/whatsTokenDeleteModule.js");
 const { scheduleTask, cancelTask } = require('./modules/cronJobModule.js');
 
 const app = express();
-app.use(bodyParser.json());
 
 // Aumentar o limite de tamanho do payload
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+// Adicionando multer para lidar com uploads de arquivos grandes
+const multer = require("multer");
+const upload = multer({ limits: { fileSize: 50 * 1024 * 1024 } }); // 50 MB
+
 const port = 5000;
 
 app.use(cors());
 
 app.use(validateApiKey);
-// app.use(cors({
-//   origin: "https://funnel-ads-oficial.vercel.app",
-//   methods: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-//   allowedHeaders: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" 
-// }));
+
+// Exemplo de rota de upload de imagem usando multer
+app.post('/upload', upload.single('image'), (req, res) => {
+  // Lógica de upload de imagem
+  res.send("Imagem recebida com sucesso");
+});
 
 app.post('/agendar', validateApiKey, (req, res) => {
   const { id, dateTime, taskData } = req.body;
@@ -108,7 +113,6 @@ app.post('/cancela-agendamento', validateApiKey, (req, res) => {
   cancelTask(id);
   res.send(`Tarefa cancelada com ID: ${id}`);
 });
-
 
 app.use("/criar-conta", criarContaModule);
 app.use("/login", login);
@@ -177,8 +181,6 @@ app.use("/whatsFluxGet", whatsappFluxGet);
 app.use("/whatsFluxGetId", whatsappFluxGetId);
 app.use("/whatsFluxPut", whatsappFluxPut);
 app.use("/whatsFluxDelete", whatsappFluxDelete);
-
-
 
 app.listen(port, () => {
   console.log(`Servidor está ouvindo em http://localhost:${port}`);
